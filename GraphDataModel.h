@@ -11,10 +11,11 @@
 @interface GraphDataModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray* dataModel;
-@property (nonatomic, strong) NSArray* persistent;
+@property (nonatomic, strong) NSMutableArray* persistent;
 
 @property (assign) int curr;
 @property (assign) int len;
+@property (assign) int perLen;
 
 
 - (void) addValue:(int) newValue;

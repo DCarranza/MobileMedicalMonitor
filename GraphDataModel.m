@@ -15,11 +15,12 @@
     
     // Allocate/init reference indices
     self.curr = 0;
-    self.len = 5; //10000;
+    self.len = 10000;
+    self.perLen = 0;
     
-    // Allocate data storage
+    // Allocate & initialize data storage
     self.dataModel = [[NSMutableArray alloc] init];
-    self.persistent = [NSArray array];
+    self.persistent = [[NSMutableArray alloc] init];
     
     // Init all data storage values to 0 (flat line at start)
     for (int i = 0; i < self.len; i++) {
@@ -30,7 +31,13 @@
 }
 
 - (void) addValue:(int) newValue{
+    
+    // Replace current with newValue
     [self.dataModel replaceObjectAtIndex:self.curr withObject:[NSNumber numberWithInt:newValue]];
+    
+    // Store in persistent data
+    [self.persistent addObject:[NSNumber numberWithInt:newValue]];
+    self.perLen++;
     
     self.curr++;
     

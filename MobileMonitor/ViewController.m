@@ -118,8 +118,8 @@ double_t RETRY_AMMOUNT = 5;
         [self.ecgGraphData addValue:i];
     }
     
-    for (int i=0; i<self.ecgGraphData.len; i++) {
-        NSLog(@"%@", [self.ecgGraphData.dataModel objectAtIndex:i]);
+    for (int i=0; i<self.ecgGraphData.perLen; i++) {
+        NSLog(@"%@", [self.ecgGraphData.persistent objectAtIndex:i]);
     }
     
 }
