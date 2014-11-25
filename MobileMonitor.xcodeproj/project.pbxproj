@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		289BED0E1A252DD300C75B3E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 289BED0D1A252DD300C75B3E /* NetworkManager.m */; };
 		F123F14B1A24E1E200C09C70 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F1461A24E1E200C09C70 /* BEMCircle.m */; };
 		F123F14C1A24E1E200C09C70 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F1481A24E1E200C09C70 /* BEMLine.m */; };
 		F123F14D1A24E1E200C09C70 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F14A1A24E1E200C09C70 /* BEMSimpleLineGraphView.m */; };
@@ -18,7 +19,6 @@
 		F1BE044A1A154A83000CE04A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1BE04491A154A83000CE04A /* Images.xcassets */; };
 		F1BE044D1A154A83000CE04A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE044B1A154A83000CE04A /* LaunchScreen.xib */; };
 		F1BE04591A154A83000CE04A /* MobileMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE04581A154A83000CE04A /* MobileMonitorTests.m */; };
-		F1BE04641A154AFE000CE04A /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE04621A154AFE000CE04A /* NetworkManager.m */; };
 		F1C9A76A1A1D740200EBA21A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9A7691A1D740200EBA21A /* CoreGraphics.framework */; };
 		F1C9A76C1A1D740700EBA21A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9A76B1A1D740700EBA21A /* UIKit.framework */; };
 		F1C9A76E1A1D740F00EBA21A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9A76D1A1D740F00EBA21A /* Foundation.framework */; };
@@ -35,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		289BED0C1A252DCC00C75B3E /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		289BED0D1A252DD300C75B3E /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		F123F1451A24E1E200C09C70 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
 		F123F1461A24E1E200C09C70 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
 		F123F1471A24E1E200C09C70 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
@@ -56,8 +58,6 @@
 		F1BE04521A154A83000CE04A /* MobileMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BE04571A154A83000CE04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1BE04581A154A83000CE04A /* MobileMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileMonitorTests.m; sourceTree = "<group>"; };
-		F1BE04621A154AFE000CE04A /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = ../Thermometer/NetworkManager.m; sourceTree = "<group>"; };
-		F1BE04631A154AFE000CE04A /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = ../Thermometer/NetworkManager.h; sourceTree = "<group>"; };
 		F1C9A7691A1D740200EBA21A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F1C9A76B1A1D740700EBA21A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1C9A76D1A1D740F00EBA21A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,8 +102,8 @@
 			children = (
 				F16521551A252B6B00F65C1A /* GraphDataModel.h */,
 				F16521561A252B6B00F65C1A /* GraphDataModel.m */,
-				F1BE04621A154AFE000CE04A /* NetworkManager.m */,
-				F1BE04631A154AFE000CE04A /* NetworkManager.h */,
+				289BED0C1A252DCC00C75B3E /* NetworkManager.h */,
+				289BED0D1A252DD300C75B3E /* NetworkManager.m */,
 				F1BE043B1A154A83000CE04A /* MobileMonitor */,
 				F1BE04551A154A83000CE04A /* MobileMonitorTests */,
 				F1BE043A1A154A83000CE04A /* Products */,
@@ -264,8 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				289BED0E1A252DD300C75B3E /* NetworkManager.m in Sources */,
 				F16521571A252B6B00F65C1A /* GraphDataModel.m in Sources */,
-				F1BE04641A154AFE000CE04A /* NetworkManager.m in Sources */,
 				F123F14B1A24E1E200C09C70 /* BEMCircle.m in Sources */,
 				F1BE04451A154A83000CE04A /* ViewController.m in Sources */,
 				F123F14C1A24E1E200C09C70 /* BEMLine.m in Sources */,

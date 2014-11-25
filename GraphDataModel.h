@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface GraphDataModel : NSObject
 
@@ -20,19 +21,19 @@
 @property (assign) int perLen;
 
 // Operators
-- (void) addValue:(int) newValue;
+- (void) addValue:(double) newValue;
 - (void) addTestData;
 
 // DataModel getters
 - (NSMutableArray*) getDataModel;
 - (NSNumber*) dataModelLen_NS;
 - (int) dataModelLen_Int;
-- (NSNumber*) dmObjectAtIndex: (int) index;
+- (CGFloat) dmObjectAtIndex: (int) index;
 
 // Persistent getters
 - (NSMutableArray*) getPersistent;
 - (NSNumber*) persistentLen_NS;
 - (int) persistentLen_Int;
-- (NSNumber*) perObjectAtIndex: (int) index;
+- (CGFloat) perObjectAtIndex: (int) index;
 
 @end

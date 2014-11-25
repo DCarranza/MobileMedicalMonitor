@@ -26,7 +26,7 @@
     
     // Init all data storage values to 0 (flat line at start)
     for (int i = 0; i < self.len; i++) {
-        [self.dataModel addObject:[NSNumber numberWithInt:0]];
+        [self.dataModel addObject:[NSNumber numberWithDouble:0.0]];
     };
     
     return self;
@@ -34,13 +34,13 @@
 
 /* Data Storage Operators */
 
-- (void) addValue:(int) newValue{
+- (void) addValue:(double) newValue{
     
     // Replace current with newValue
-    [self.dataModel replaceObjectAtIndex:self.curr withObject:[NSNumber numberWithInt:newValue]];
+    [self.dataModel replaceObjectAtIndex:self.curr withObject:[NSNumber numberWithDouble:newValue]];
     
     // Store in persistent data
-    [self.persistent addObject:[NSNumber numberWithInt:newValue]];
+    [self.persistent addObject:[NSNumber numberWithDouble:newValue]];
     self.perLen++;
     
     self.curr++;
@@ -71,8 +71,8 @@
     return self.len;
 }
 
-- (NSNumber*) dmObjectAtIndex: (int) index {
-    return [self.dataModel objectAtIndex:index];
+- (CGFloat) dmObjectAtIndex: (int) index {
+    return [[self.dataModel objectAtIndex:index] doubleValue];
 }
 
 
@@ -90,8 +90,8 @@
     return self.perLen;
 }
 
-- (NSNumber*) perObjectAtIndex: (int) index {
-    return [self.persistent objectAtIndex:index];
+- (CGFloat) perObjectAtIndex: (int) index {
+    return [[self.persistent objectAtIndex:index] doubleValue];
 }
 
 
