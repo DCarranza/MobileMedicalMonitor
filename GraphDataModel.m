@@ -10,12 +10,14 @@
 
 @implementation GraphDataModel
 
+
+
 - (id) init {
     self = [super init];
     
     // Allocate/init reference indices
     self.curr = 0;
-    self.len = 10000;
+    self.len = 5; //10000;
     self.perLen = 0;
     
     // Allocate & initialize data storage
@@ -29,6 +31,8 @@
     
     return self;
 }
+
+/* Data Storage Operators */
 
 - (void) addValue:(int) newValue{
     
@@ -46,14 +50,48 @@
     }
 }
 
-- (NSArray*) getGraphDataModel {
-    return [[NSArray alloc] initWithArray:self.dataModel];
-}
-
 - (void) addTestData {
     for (int i=0; i<self.len; i++) {
         [self.dataModel replaceObjectAtIndex:i withObject:[NSNumber numberWithInt:i]];
     }
+}
+
+
+/* DataModel-specific getters/setters */
+
+- (NSArray*) getDataModel {
+    return [[NSArray alloc] initWithArray:self.dataModel copyItems:YES];
+}
+
+- (NSNumber*) dataModelLen_NS {
+    return [NSNumber numberWithInt:self.len];
+}
+
+- (int) dataModelLen_Int {
+    return self.len;
+}
+
+- (NSNumber*) dmObjectAtIndex: (int) index {
+    return [self.dataModel objectAtIndex:index];
+}
+
+
+/* Persistent-specific getters/setters */
+
+- (NSArray*) getPersistent {
+    return [[NSArray alloc] initWithArray:self.persistent copyItems:YES];
+}
+
+- (NSNumber*) persistentLen_NS {
+    return [NSNumber numberWithInt:self.perLen];
+}
+
+- (int) persistentLen_Int {
+    return self.perLen;
+}
+
+- (NSNumber*) perObjectAtIndex: (int) index {
+    return [self.persistent objectAtIndex:index];
 }
 
 
