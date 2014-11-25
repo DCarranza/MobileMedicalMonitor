@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "NetworkManager.h"
-#import "DataModel.h"
 #import "GraphDataModel.h"
 #import <AVFoundation/AVFoundation.h>
 
@@ -18,10 +17,6 @@ double_t WAIT_TIME = 1.0;
 double_t RETRY_AMMOUNT = 5;
 
 @interface ViewController ()
-
-@property (nonatomic, strong) GraphDataModel *ecgGraphData;
-
-
 //This has been typedef'd in NetworkManager.h
 @property (nonatomic, copy) CompletionBlock completionBlock;
 @property (nonatomic, strong) NetworkManager* netManager;
@@ -29,7 +24,9 @@ double_t RETRY_AMMOUNT = 5;
 @property (nonatomic, assign) NSInteger retryCounter;
 
 
-//UI SHIT
+@property (nonatomic,strong)GraphDataModel* ecgGraphData;
+
+//UI
 @property (strong, nonatomic) IBOutlet UIView *ParentView;
 @property (strong, nonatomic) IBOutlet UIView *rowOne;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *rowOneHeightConst;
@@ -38,18 +35,14 @@ double_t RETRY_AMMOUNT = 5;
 @property (strong, nonatomic) IBOutlet UIView *rowThree;
 @property (strong, nonatomic) IBOutlet UIView *rowFour;
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *rowThreeEqualRowTwoConst;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *threeAndOne;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *threeAndFour;
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *oneAndTwo;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *oneAndFour;
+@property (strong, nonatomic) IBOutlet UILabel *bpmLabel;
+@property (strong, nonatomic) IBOutlet UILabel *bpmNumLabel;
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *twoAndFour;
+
 
 - (IBAction)testButton:(id)sender;
-- (IBAction)testButtonTwo:(id)sender;
-- (IBAction)testButtonThree:(id)sender;
+
 
 @end
 
@@ -96,36 +89,35 @@ double_t RETRY_AMMOUNT = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //UI Code
+    //WORK IN PROGRESS
     self.ParentView.autoresizesSubviews = YES;
+    self.rowOne.autoresizesSubviews = YES;
+    self.bpmNumLabel.adjustsFontSizeToFitWidth = YES;
+    self.bpmNumLabel.minimumScaleFactor = .5f;
+    self.bpmLabel.adjustsFontSizeToFitWidth = YES;
+    self.bpmLabel.minimumScaleFactor = .5f;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.bpmLabel.preferredMaxLayoutWidth = self.bpmLabel.bounds.size.width;
+        self.bpmNumLabel.preferredMaxLayoutWidth = self.bpmNumLabel.bounds.size.width;
+    });
     
     [self initalizeCompletionBlock];
     self.retryCounter = 0;
     self.ipAddress =[NSURL URLWithString:URL];
     self.netManager = [[NetworkManager alloc] initWithIPAddress:self.ipAddress];
     
+    
     //Run network code
     [self.netManager establishConnection:self.completionBlock];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    
-    // Test code for DataModel
-    // TODO: REMOVE THIS CODE
-    
+    //Initialize the Graph Module
     self.ecgGraphData = [[GraphDataModel alloc] init];
-    
-    for (int i=0; i<7; i++) {
-        [self.ecgGraphData addValue:i];
-    }
-    
-    for (int i=0; i<[self.ecgGraphData dataModelLen_Int]; i++) {
-        NSLog(@"DataModel at %d : %@", i, [self.ecgGraphData dmObjectAtIndex:i]);
-    }
-    
-    for (int i=0; i<[self.ecgGraphData persistentLen_Int]; i++) {
-        NSLog(@"Persistent at %d : %@", i, [self.ecgGraphData perObjectAtIndex:i]);
-    }
-    
+    [self.ecgGraphData addTestData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,68 +125,6 @@ double_t RETRY_AMMOUNT = 5;
     // Dispose of any resources that can be recreated.
 }
 
-- (void) toggleRowOneView{
-    if(!self.rowOne.hidden){
-        NSLog(@"%u", [[self.rowOne constraints] count]);
-        [UIView animateWithDuration:1 animations:^{
-            [self.rowOne addConstraint: [NSLayoutConstraint
-                                         constraintWithItem:self.rowOne
-                                         attribute:NSLayoutAttributeHeight
-                                         relatedBy:NSLayoutRelationEqual
-                                         toItem:nil
-                                         attribute:NSLayoutAttributeNotAnAttribute
-                                         multiplier:1.0 constant:0.0]];
-            //[self.rowOne setFrame:newFrame];
-            //[self.ParentView updateConstraints];
-            [self.ParentView layoutSubviews];
-        }
-                         completion:^(BOOL finished){
-                            self.rowOne.hidden = YES;
-                            NSLog(@"%u",[[self.rowOne constraints] count]);
-                         }];
-        
-    }
-    else{
-        [UIView animateWithDuration:1.0 animations: ^{
-            self.rowOne.hidden = NO;
-            NSArray *tempConstraints  = [self.rowOne constraints];
-            [self.rowOne removeConstraints:tempConstraints];
-            [self.ParentView layoutSubviews];
-        }
-                         completion:^(BOOL finished){
-                         }];
-    }
-}
-
-- (void) toggleRowTwoView{
-    if(!self.rowTwo.hidden){
-        [UIView animateWithDuration:1 animations:^{
-            [self.rowTwo addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.rowTwo
-                                        attribute:NSLayoutAttributeHeight
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                        attribute:NSLayoutAttributeNotAnAttribute
-                                        multiplier:1.0
-                                        constant:0]];
-            [self.ParentView layoutSubviews];
-        }
-                         completion:^(BOOL finished){
-                             self.rowTwo.hidden = YES;
-                         }];
-    }
-    else{
-        [UIView animateWithDuration:1 animations:^{
-            self.rowTwo.hidden = NO;
-            NSArray *tempConstraints = [self.rowTwo constraints];
-            [self.rowTwo removeConstraints:tempConstraints];
-            [self.ParentView layoutSubviews];
-        }
-                         completion:^(BOOL finished){
-                         }];
-    
-    }
-}
 
 - (void) toggleRowView: (UIView*)row {
     if(!row.hidden){
@@ -218,6 +148,9 @@ double_t RETRY_AMMOUNT = 5;
                                         multiplier:1
                                         constant:0]];
             [self.ParentView layoutSubviews];
+            [self.rowOne layoutIfNeeded];
+            //[self.bpmLabel sizeToFit];
+            //[self.bpmNumLabel sizeToFit];
         }
                          completion:^(BOOL finished){
                              row.hidden = YES;
@@ -227,7 +160,10 @@ double_t RETRY_AMMOUNT = 5;
         [UIView animateWithDuration:1 animations:^{
             row.hidden = NO;
             NSArray *tempConstraints = [row constraints];
+            NSLog(@"%u", [tempConstraints count]);
             [row removeConstraints:tempConstraints];
+           // [self.bpmNumLabel sizeToFit];
+           // [self.bpmLabel sizeToFit];
             [self.ParentView layoutSubviews];
         }
                          completion:^(BOOL finished){
@@ -235,22 +171,29 @@ double_t RETRY_AMMOUNT = 5;
         
     }
 }
-
 - (IBAction)testButton:(id)sender {
     [self toggleRowView:self.rowOne];
 }
 
-- (IBAction)testButtonTwo:(id)sender {
+
+- (IBAction)butTwo:(id)sender {
     [self toggleRowView:self.rowTwo];
 }
+
+
 
 - (IBAction)testButtonThree:(id)sender {
     [self toggleRowView:self.rowFour];
     [self toggleRowView:self.rowThree];
-    
-    
-    
-    //Graph Code
 }
 
+/*
+- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
+    
+    return [self.ecgGraphData dmObjectAtIndex:[index intValue]];
+}
+- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 1000; // Number of points in the graph.
+}
+*/
 @end

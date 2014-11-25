@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BEMSimpleLineGraphView.h"
 
 @interface ViewController : UIViewController
+
 
 @end
 
