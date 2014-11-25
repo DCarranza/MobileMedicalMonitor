@@ -111,6 +111,16 @@ double_t RETRY_AMMOUNT = 5;
     
     // Test code for DataModel
     // TODO: REMOVE THIS CODE
+    self.ecgGraphData = [[GraphDataModel alloc] init];
+    [self.ecgGraphData addTestData];
+    
+    for (int i=0; i<7; i++) {
+        [self.ecgGraphData addValue:i];
+    }
+    
+    for (int i=0; i<self.ecgGraphData.len; i++) {
+        NSLog(@"%@", [self.ecgGraphData.dataModel objectAtIndex:i]);
+    }
     
 }
 

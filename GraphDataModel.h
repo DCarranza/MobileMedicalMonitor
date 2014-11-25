@@ -12,7 +12,13 @@
 
 @property (nonatomic, strong) NSMutableArray* dataModel;
 @property (nonatomic, strong) NSArray* persistent;
+
 @property (assign) int curr;
 @property (assign) int len;
+
+
+- (void) addValue:(int) newValue;
+- (NSArray*) getGraphDataModel;
+- (void) addTestData;
 
 @end
