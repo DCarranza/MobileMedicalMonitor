@@ -5,6 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>216AF3CF-9728-47EF-A65C-29434B0573FC</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
@@ -22,6 +23,25 @@
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/DCarranza/MobileMedicalMonitor/</string>
+=======
+	<string>07262FEB-607E-4B6D-B260-4D8F427A482A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MobileMonitor</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0BFADB51430610068FBA7D7C7DFBD57C4D15EF83</key>
+		<string>github.com:dcarranza/MobileMedicalMonitor</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MobileMonitor.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0BFADB51430610068FBA7D7C7DFBD57C4D15EF83</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:dcarranza/MobileMedicalMonitor</string>
+>>>>>>> 347b4def5daa9cf5309f5da8ecab955ec318319e
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -36,6 +56,7 @@
 			<key>IDESourceControlWCCName</key>
 			<string>MobileMedicalMonitor</string>
 		</dict>
+<<<<<<< HEAD
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
@@ -44,6 +65,8 @@
 			<key>IDESourceControlWCCName</key>
 			<string>Thermometer</string>
 		</dict>
+=======
+>>>>>>> 347b4def5daa9cf5309f5da8ecab955ec318319e
 	</array>
 </dict>
 </plist>

@@ -23,8 +23,9 @@ double_t RETRY_AMMOUNT = 5;
 @property (nonatomic, strong) NSURL* ipAddress;
 @property (nonatomic, assign) NSInteger retryCounter;
 
-
+// GraphDataModels for each graph
 @property (nonatomic,strong)GraphDataModel* ecgGraphData;
+@property (nonatomic,strong)GraphDataModel* pulseGraphData;
 
 //UI
 @property (strong, nonatomic) IBOutlet UIView *ParentView;
@@ -116,8 +117,11 @@ double_t RETRY_AMMOUNT = 5;
     
     //Initialize the Graph Module
     self.ecgGraphData = [[GraphDataModel alloc] init];
+    self.pulseGraphData = [[GraphDataModel alloc] init];
+    
+    // Add test data to both, for testing purposes
     [self.ecgGraphData addTestData];
-
+    [self.pulseGraphData addTestData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -180,20 +184,21 @@ double_t RETRY_AMMOUNT = 5;
     [self toggleRowView:self.rowTwo];
 }
 
-
-
 - (IBAction)testButtonThree:(id)sender {
     [self toggleRowView:self.rowFour];
     [self toggleRowView:self.rowThree];
 }
 
-/*
+/* Graph methods */
+
+// Graphing functions for the ECG Graph
+
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    
-    return [self.ecgGraphData dmObjectAtIndex:[index intValue]];
+    return [self.ecgGraphData dmObjectAtIndex:index];
 }
+
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return 1000; // Number of points in the graph.
+    return [[self.ecgGraphData persistentLen_NS] intValue];
 }
-*/
+
 @end
