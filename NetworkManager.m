@@ -8,7 +8,7 @@
 
 #import "NetworkManager.h"
 
-NSTimeInterval TIMEOUT_IN_SECONDS = 5.0;
+NSTimeInterval TIMEOUT_IN_SECONDS = 1.0;
 
 @implementation NetworkManager
 

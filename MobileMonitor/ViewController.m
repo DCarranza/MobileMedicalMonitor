@@ -115,6 +115,7 @@ double_t RETRY_AMMOUNT = 5;
     [self.netManager establishConnection:self.completionBlock];
     // Do any additional setup after loading the view, typically from a nib.
     
+    
     //Initialize the Graph Module
     self.ecgGraphData = [[GraphDataModel alloc] init];
     self.pulseGraphData = [[GraphDataModel alloc] init];
@@ -122,6 +123,22 @@ double_t RETRY_AMMOUNT = 5;
     // Add test data to both, for testing purposes
     [self.ecgGraphData addTestData];
     [self.pulseGraphData addTestData];
+    
+    //Add graphs to the view
+    BEMSimpleLineGraphView *bpmGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    bpmGraph.dataSource = self;
+    bpmGraph.delegate = self;
+    [self.rowOne addSubview:bpmGraph];
+    
+    BEMSimpleLineGraphView *pulseGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    pulseGraph.dataSource = self;
+    pulseGraph.delegate = self;
+    [self.rowTwo addSubview:pulseGraph];
+    
+    BEMSimpleLineGraphView *spoGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    spoGraph.dataSource = self;
+    spoGraph.delegate = self;
+    [self.rowThree addSubview:spoGraph];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -194,10 +211,12 @@ double_t RETRY_AMMOUNT = 5;
 // Graphing functions for the ECG Graph
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
+    NSLog(@"point: %f", [self.ecgGraphData dmObjectAtIndex:index]);
     return [self.ecgGraphData dmObjectAtIndex:index];
 }
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
+    NSLog(@"%d", [[self.ecgGraphData persistentLen_NS] intValue]);
     return [[self.ecgGraphData persistentLen_NS] intValue];
 }
 
