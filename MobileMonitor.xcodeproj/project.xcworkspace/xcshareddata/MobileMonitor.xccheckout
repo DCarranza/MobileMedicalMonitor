@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>216AF3CF-9728-47EF-A65C-29434B0573FC</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0BFADB51430610068FBA7D7C7DFBD57C4D15EF83</key>
+		<string>https://github.com/DCarranza/MobileMedicalMonitor/</string>
+		<key>C998EBC5E091F26463F7A7E667FFE2DC7613BCBE</key>
+		<string>https://www.github.com/DCarranza/thermometer</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0BFADB51430610068FBA7D7C7DFBD57C4D15EF83</key>
+		<string>MobileMedicalMonitor/</string>
+		<key>C998EBC5E091F26463F7A7E667FFE2DC7613BCBE</key>
+		<string>Thermometer/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DCarranza/MobileMedicalMonitor/</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0BFADB51430610068FBA7D7C7DFBD57C4D15EF83</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0BFADB51430610068FBA7D7C7DFBD57C4D15EF83</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MobileMedicalMonitor</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C998EBC5E091F26463F7A7E667FFE2DC7613BCBE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Thermometer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
