@@ -22,6 +22,7 @@
 		F1C9A76A1A1D740200EBA21A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9A7691A1D740200EBA21A /* CoreGraphics.framework */; };
 		F1C9A76C1A1D740700EBA21A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9A76B1A1D740700EBA21A /* UIKit.framework */; };
 		F1C9A76E1A1D740F00EBA21A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C9A76D1A1D740F00EBA21A /* Foundation.framework */; };
+		F1E0AC1D1A2D4DAB0025E8AC /* ecg.txt in Resources */ = {isa = PBXBuildFile; fileRef = F1E0AC1C1A2D4DAB0025E8AC /* ecg.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F1C9A7691A1D740200EBA21A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F1C9A76B1A1D740700EBA21A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1C9A76D1A1D740F00EBA21A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F1E0AC1C1A2D4DAB0025E8AC /* ecg.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ecg.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		F1BE04301A154A83000CE04A = {
 			isa = PBXGroup;
 			children = (
+				F1E0AC1C1A2D4DAB0025E8AC /* ecg.txt */,
 				F16521551A252B6B00F65C1A /* GraphDataModel.h */,
 				F16521561A252B6B00F65C1A /* GraphDataModel.m */,
 				289BED0C1A252DCC00C75B3E /* NetworkManager.h */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E0AC1D1A2D4DAB0025E8AC /* ecg.txt in Resources */,
 				F1BE04481A154A83000CE04A /* Main.storyboard in Resources */,
 				F1BE044D1A154A83000CE04A /* LaunchScreen.xib in Resources */,
 				F1BE044A1A154A83000CE04A /* Images.xcassets in Resources */,
