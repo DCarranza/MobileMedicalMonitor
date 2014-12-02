@@ -11,8 +11,9 @@
 #import "SettingsViewController.h"
 
 
-@interface ViewController : UIViewController <SettingsViewControllerDelegate>
+@interface ViewController : UIViewController <SettingsViewControllerDelegate, BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
+@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *bpmGraph;
 
 @end
 

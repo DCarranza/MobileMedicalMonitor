@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileMonitor/ViewController.m"
-            timestampString = "439195593.360412"
+            timestampString = "439196390.519894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "-loadInECGData"
             landmarkType = "5">
          </BreakpointContent>

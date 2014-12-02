@@ -27,7 +27,7 @@ double_t RETRY_AMMOUNT = 5;
 @property (nonatomic, strong) NSArray* spoData;
 
 // GraphDataModels for each graph
-@property (nonatomic,strong)GraphDataModel* ecgGraphData;
+@property (nonatomic,strong)GraphDataModel* bpmGraphData;
 @property (nonatomic,strong)GraphDataModel* pulseGraphData;
 
 //UI
@@ -162,19 +162,21 @@ double_t RETRY_AMMOUNT = 5;
     
     
     //Initialize the Graph Module
-    self.ecgGraphData = [[GraphDataModel alloc] init];
+    self.bpmGraphData = [[GraphDataModel alloc] init];
     self.pulseGraphData = [[GraphDataModel alloc] init];
     
     // Add test data to both, for testing purposes
-    [self.ecgGraphData addTestData];
+    [self.bpmGraphData addTestData];
     [self.pulseGraphData addTestData];
-    /*
+    
+    
     //Add graphs to the view
     BEMSimpleLineGraphView *bpmGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
     bpmGraph.dataSource = self;
     bpmGraph.delegate = self;
     [self.rowOne addSubview:bpmGraph];
     
+    /*
     BEMSimpleLineGraphView *pulseGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
     pulseGraph.dataSource = self;
     pulseGraph.delegate = self;
@@ -190,6 +192,7 @@ double_t RETRY_AMMOUNT = 5;
    // NSDecimalNumber* temp = [NSDecimalNumber decimalNumberWithString:self.ecgData[0]];
     //self.bpmNumLabel.text = [temp stringValue];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -372,14 +375,26 @@ double_t RETRY_AMMOUNT = 5;
 
 // Graphing functions for the ECG Graph
 
-- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    NSLog(@"point: %f", [self.ecgGraphData dmObjectAtIndex:index]);
-    return [self.ecgGraphData dmObjectAtIndex:index];
-}
+#pragma mark - Data Source
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    NSLog(@"%d", [[self.ecgGraphData persistentLen_NS] intValue]);
-    return [[self.ecgGraphData persistentLen_NS] intValue];
+    return [[NSNumber numberWithInt:1000] integerValue];
+}
+
+- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
+    return [self.bpmGraphData dmObjectAtIndex:(int)index];
+}
+
+#pragma mark - Delegate
+
+- (NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 1;
+}
+
+- (NSString*)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    NSString* label = [[NSString alloc] init];
+    label = @"%@", [self.bpmGraphData dmObjectAtIndex:index];
+    return label;
 }
 
 @end
