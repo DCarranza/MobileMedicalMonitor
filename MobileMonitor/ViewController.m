@@ -12,8 +12,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-NSString* URL = @"http://10.3.13.204/";
-double_t WAIT_TIME = 1.0;
+NSString* URL = @"http://www.google.com"; // @"http://10.3.13.204/";
+double_t WAIT_TIME = 0.0;
 double_t RETRY_AMMOUNT = 5;
 
 @interface ViewController ()
@@ -24,11 +24,13 @@ double_t RETRY_AMMOUNT = 5;
 @property (nonatomic, assign) NSInteger retryCounter;
 
 @property (nonatomic, strong) NSArray* ecgData;
+@property (nonatomic, strong) NSArray* pulseData;
 @property (nonatomic, strong) NSArray* spoData;
 
 // GraphDataModels for each graph
 @property (nonatomic,strong)GraphDataModel* bpmGraphData;
 @property (nonatomic,strong)GraphDataModel* pulseGraphData;
+@property (nonatomic,strong)GraphDataModel* spoGraphData;
 
 //UI
 @property (strong, nonatomic) IBOutlet UIView *ParentView;
@@ -85,6 +87,19 @@ double_t RETRY_AMMOUNT = 5;
             self.spoNumLabel.text = self.spoData[0];
             self.counter++;
             
+            
+            // Redraw Graph
+            // Fill data model with sample data
+            for (int i=0; i<1000; i++) {
+                [self.bpmGraph reloadGraph];
+                [self.pulseGraph reloadGraph];
+                [self.spoGraph reloadGraph];
+                [NSThread sleepForTimeInterval:0.001];
+            }
+            
+           
+            
+            
             //This call takes care of the sleeping
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, WAIT_TIME * NSEC_PER_SEC),
                            dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
@@ -124,6 +139,7 @@ double_t RETRY_AMMOUNT = 5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadInECGData];
+    [self loadinPulseData];
     [self loadinSPOData];
     self.tempAlarmUpperThresh = [NSNumber numberWithInt:100];
     self.pulseAlarmUpper = [NSNumber numberWithInt:300];
@@ -161,36 +177,52 @@ double_t RETRY_AMMOUNT = 5;
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    //Initialize the Graph Module
+    //Initialize the Graph Data Module
     self.bpmGraphData = [[GraphDataModel alloc] init];
     self.pulseGraphData = [[GraphDataModel alloc] init];
-    
-    // Add test data to both, for testing purposes
-    [self.bpmGraphData addTestData];
-    [self.pulseGraphData addTestData];
+    self.spoGraphData = [[GraphDataModel alloc] init];
     
     
     //Add graphs to the view
-    BEMSimpleLineGraphView *bpmGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    bpmGraph.dataSource = self;
-    bpmGraph.delegate = self;
-    [self.rowOne addSubview:bpmGraph];
     
-    /*
-    BEMSimpleLineGraphView *pulseGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    pulseGraph.dataSource = self;
-    pulseGraph.delegate = self;
-    [self.rowTwo addSubview:pulseGraph];
+    // BPM
+    self.bpmGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    self.bpmGraph.dataSource = self;
+    self.bpmGraph.delegate = self;
+    self.bpmGraph.enableBezierCurve = YES;
+    self.bpmGraph.animationGraphEntranceTime = 0.4;
+    self.bpmGraph.animationGraphStyle = BEMLineAnimationDraw;
+    [self.rowOne addSubview:self.bpmGraph];
     
-    BEMSimpleLineGraphView *spoGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    spoGraph.dataSource = self;
-    spoGraph.delegate = self;
-    [self.rowThree addSubview:spoGraph];
-     */
+    for (int i=0; i<1000; i++) {
+        [self.bpmGraphData addValue:[[self.ecgData objectAtIndex:i] doubleValue] ];
+    }
     
-    //CONVERT TO PROPER LONG VALUE ECG DATA
-   // NSDecimalNumber* temp = [NSDecimalNumber decimalNumberWithString:self.ecgData[0]];
-    //self.bpmNumLabel.text = [temp stringValue];
+    // PULSE
+    self.pulseGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    self.pulseGraph.dataSource = self;
+    self.pulseGraph.delegate = self;
+    self.pulseGraph.enableBezierCurve = YES;
+    self.pulseGraph.animationGraphEntranceTime = 0.4;
+    self.pulseGraph.animationGraphStyle = BEMLineAnimationDraw;
+    [self.rowTwo addSubview:self.pulseGraph];
+    
+    for (int i=0; i<1000; i++) {
+        [self.pulseGraphData addValue:[[self.pulseData objectAtIndex:i] doubleValue] ];
+    }
+    
+    // SPO
+    self.spoGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    self.spoGraph.dataSource = self;
+    self.spoGraph.delegate = self;
+    self.spoGraph.enableBezierCurve = YES;
+    self.spoGraph.animationGraphEntranceTime = 0.4;
+    self.spoGraph.animationGraphStyle = BEMLineAnimationDraw;
+    [self.rowThree addSubview:self.spoGraph];
+    
+    for (int i=0; i<1000; i++) {
+        [self.spoGraphData addValue:[[self.spoData objectAtIndex:i] doubleValue] ];
+    }
 }
 
 
@@ -340,6 +372,16 @@ double_t RETRY_AMMOUNT = 5;
     self.ecgData = [fileContents componentsSeparatedByString:@"\n"];
 }
 
+-(void) loadinPulseData{
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"pulse" ofType:@"txt"];
+    NSString *fileContents = [NSString stringWithContentsOfFile:path
+                                                       encoding:NSUTF8StringEncoding
+                                                          error:nil];
+    fileContents = [fileContents stringByReplacingOccurrencesOfString:@"\t"
+                                                           withString:@""];
+    self.pulseData = [fileContents componentsSeparatedByString:@"\n"];
+}
+
 -(void) loadinSPOData{
     NSString* path = [[NSBundle mainBundle] pathForResource:@"spo2" ofType:@"txt"];
     NSString *fileContents = [NSString stringWithContentsOfFile:path
@@ -382,7 +424,18 @@ double_t RETRY_AMMOUNT = 5;
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [self.bpmGraphData dmObjectAtIndex:(int)index];
+    if ([graph isEqual:self.bpmGraph]) {
+        return [self.bpmGraphData dmObjectAtIndex:(int)index];
+    }
+    else if ([graph isEqual:self.pulseGraph]) {
+        return [self.pulseGraphData dmObjectAtIndex:(int)index];
+    }
+    else if ([graph isEqual:self.spoGraph]) {
+        return [self.spoGraphData dmObjectAtIndex:(int)index];
+    }
+    else {
+        return (double)0.0;
+    }
 }
 
 #pragma mark - Delegate

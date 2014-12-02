@@ -13,7 +13,9 @@
 
 @interface ViewController : UIViewController <SettingsViewControllerDelegate, BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
-@property (weak, nonatomic) IBOutlet BEMSimpleLineGraphView *bpmGraph;
+@property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *bpmGraph;
+@property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *pulseGraph;
+@property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *spoGraph;
 
 @end
 

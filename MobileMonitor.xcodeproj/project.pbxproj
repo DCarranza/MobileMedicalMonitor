@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		289BED0E1A252DD300C75B3E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 289BED0D1A252DD300C75B3E /* NetworkManager.m */; };
+		28EC58861A2DAC590020458D /* pulse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28EC58851A2DAC590020458D /* pulse.txt */; };
 		F123F14B1A24E1E200C09C70 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F1461A24E1E200C09C70 /* BEMCircle.m */; };
 		F123F14C1A24E1E200C09C70 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F1481A24E1E200C09C70 /* BEMLine.m */; };
 		F123F14D1A24E1E200C09C70 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F14A1A24E1E200C09C70 /* BEMSimpleLineGraphView.m */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		289BED0C1A252DCC00C75B3E /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		289BED0D1A252DD300C75B3E /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		28EC58851A2DAC590020458D /* pulse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pulse.txt; path = ../../Downloads/pulse.txt; sourceTree = "<group>"; };
 		F123F1451A24E1E200C09C70 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
 		F123F1461A24E1E200C09C70 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
 		F123F1471A24E1E200C09C70 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				F1E0AC1C1A2D4DAB0025E8AC /* ecg.txt */,
 				F1F6C12E1A2D61C700291CA2 /* spo2.txt */,
+				28EC58851A2DAC590020458D /* pulse.txt */,
 				F16521551A252B6B00F65C1A /* GraphDataModel.h */,
 				F16521561A252B6B00F65C1A /* GraphDataModel.m */,
 				289BED0C1A252DCC00C75B3E /* NetworkManager.h */,
@@ -275,6 +278,7 @@
 				F12731931A2D939C00D99395 /* green_wifi.png in Resources */,
 				F12731971A2D953100D99395 /* settings.png in Resources */,
 				F1F6C12F1A2D61C700291CA2 /* spo2.txt in Resources */,
+				28EC58861A2DAC590020458D /* pulse.txt in Resources */,
 				F12731941A2D939C00D99395 /* red_wifi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
