@@ -150,15 +150,6 @@ double_t RETRY_AMMOUNT = 5;
 - (void) toggleRowView: (UIView*)row {
     if(!row.hidden){
         [UIView animateWithDuration:1 animations:^{
-          /*[self.ParentView
-           removeConstraint:self.rowThreeEqualRowTwoConst];
-            [self.ParentView removeConstraint:self.threeAndFour];
-            [self.ParentView removeConstraint:self.threeAndOne];
-            [self.ParentView updateConstraints];
-            [self.ParentView layoutSubviews];*/
-           // self.twoAndFour.priority = 1000;
-            //self.oneAndFour.priority = 1000;
-            //self.oneAndTwo.priority = 1000;
             
             [row addConstraint:[NSLayoutConstraint
                                         constraintWithItem:row
@@ -170,8 +161,7 @@ double_t RETRY_AMMOUNT = 5;
                                         constant:0]];
             [self.ParentView layoutSubviews];
             [self.rowOne layoutIfNeeded];
-            //[self.bpmLabel sizeToFit];
-            //[self.bpmNumLabel sizeToFit];
+
         }
                          completion:^(BOOL finished){
                              row.hidden = YES;
@@ -181,8 +171,8 @@ double_t RETRY_AMMOUNT = 5;
         [UIView animateWithDuration:1 animations:^{
             row.hidden = NO;
             NSArray *tempConstraints = [row constraints];
-            NSLog(@"%u", [tempConstraints count]);
-            [row removeConstraints:tempConstraints];
+            NSLog(@"%@", tempConstraints);
+            [row removeConstraint:[tempConstraints lastObject]];
            // [self.bpmNumLabel sizeToFit];
            // [self.bpmLabel sizeToFit];
             [self.ParentView layoutSubviews];
