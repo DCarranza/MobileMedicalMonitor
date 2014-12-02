@@ -84,7 +84,6 @@ double_t RETRY_AMMOUNT = 5;
             self.retryCounter = 0;
             [self storeDataAsJSON:data with:error];
             
-            self.spoNumLabel.text = self.spoData[0];
             self.counter++;
             
             //This call takes care of the sleeping
@@ -224,7 +223,7 @@ double_t RETRY_AMMOUNT = 5;
     self.spoGraph.colorTop = [UIColor blackColor];
     self.spoGraph.colorBottom = [UIColor blackColor];
     self.spoGraph.backgroundColor = [UIColor blackColor];
-    self.spoGraph.colorLine = [UIColor blueColor];
+    self.spoGraph.colorLine = [UIColor colorWithRed:68/255.0 green:178/255.0 blue:240/255.0 alpha:1.0];
 
     self.spoGraph.dataSource = self;
     self.spoGraph.delegate = self;

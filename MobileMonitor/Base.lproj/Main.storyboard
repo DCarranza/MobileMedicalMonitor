@@ -51,6 +51,12 @@
                                             </mask>
                                         </variation>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bpm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-Eh-YRI">
+                                        <rect key="frame" x="926" y="67" width="79" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                        <color key="textColor" red="0.0039215688593685627" green="0.85098046064376831" blue="0.38823533058166504" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="highlightedColor" red="0.0" green="0.5647059083" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
@@ -147,6 +153,12 @@
                                             </mask>
                                         </variation>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luf-au-eEb">
+                                        <rect key="frame" x="933" y="61" width="54" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                        <color key="textColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.50196081399917603" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="highlightedColor" red="0.0" green="0.5647059083" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -184,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="399" width="1024" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-1e-dmi">
-                                        <rect key="frame" x="817" y="29" width="134" height="94"/>
+                                        <rect key="frame" x="817" y="29" width="176" height="94"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="80"/>
                                         <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -226,11 +238,17 @@
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(--)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx6-gq-xg3">
-                                        <rect key="frame" x="461" y="23" width="134" height="94"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="80"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wo-Xu-P5w">
+                                        <rect key="frame" x="936" y="57" width="54" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                        <color key="textColor" red="0.0" green="0.5647059083" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="highlightedColor" red="0.0" green="0.56470590829849243" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mmHg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g68-Ug-95J">
+                                        <rect key="frame" x="376" y="65" width="116" height="51"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.074509806931018829" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="highlightedColor" red="0.0" green="0.5647059083" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
