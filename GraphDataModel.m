@@ -17,7 +17,7 @@
     
     // Allocate/init reference indices
     self.curr = 0;
-    self.len = 10000;
+    self.len = 1000;
     self.perLen = 0;
     
     // Allocate & initialize data storage

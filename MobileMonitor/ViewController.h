@@ -17,5 +17,7 @@
 @property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *pulseGraph;
 @property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *spoGraph;
 
+- (IBAction)playGraphs:(UIButton*)sender;
+
 @end
 

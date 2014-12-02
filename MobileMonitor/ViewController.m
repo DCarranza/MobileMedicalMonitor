@@ -13,7 +13,7 @@
 
 
 NSString* URL = @"http://www.google.com"; // @"http://10.3.13.204/";
-double_t WAIT_TIME = 1.0;
+double_t WAIT_TIME = 0.5;
 double_t RETRY_AMMOUNT = 5;
 
 @interface ViewController ()
@@ -173,68 +173,82 @@ double_t RETRY_AMMOUNT = 5;
     //Add graphs to the view
     
     // Variables across all graphs
-    double animationGraphEntranceTime = 0.4;
+    double animationGraphEntranceTime = 4.5;
     bool enableBezierCurve = YES;
     
     // BPM
-    self.bpmGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    self.bpmGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 800, 175)];
+    
+    self.bpmGraph.colorTop = [UIColor blackColor];
+    self.bpmGraph.colorBottom = [UIColor blackColor];
+    self.bpmGraph.backgroundColor = [UIColor blackColor];
+    self.bpmGraph.colorLine = [UIColor greenColor];
+    
     self.bpmGraph.dataSource = self;
     self.bpmGraph.delegate = self;
     self.bpmGraph.enableBezierCurve = enableBezierCurve;
     self.bpmGraph.animationGraphEntranceTime = animationGraphEntranceTime;
     self.bpmGraph.animationGraphStyle = BEMLineAnimationDraw;
+    
+    
     [self.rowOne addSubview:self.bpmGraph];
     
     // PULSE
-    self.pulseGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    self.pulseGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 800, 175)];
+    
+    self.pulseGraph.colorTop = [UIColor blackColor];
+    self.pulseGraph.colorBottom = [UIColor blackColor];
+    self.pulseGraph.backgroundColor = [UIColor blackColor];
+    self.pulseGraph.colorLine = [UIColor yellowColor];
+
     self.pulseGraph.dataSource = self;
     self.pulseGraph.delegate = self;
     self.pulseGraph.enableBezierCurve = enableBezierCurve;
     self.pulseGraph.animationGraphEntranceTime = animationGraphEntranceTime;
     self.pulseGraph.animationGraphStyle = BEMLineAnimationDraw;
+    
     [self.rowTwo addSubview:self.pulseGraph];
     
     
     // SPO
-    self.spoGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    self.spoGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 0, 800, 175)];
+    
+    self.spoGraph.colorTop = [UIColor blackColor];
+    self.spoGraph.colorBottom = [UIColor blackColor];
+    self.spoGraph.backgroundColor = [UIColor blackColor];
+    self.spoGraph.colorLine = [UIColor blueColor];
+
     self.spoGraph.dataSource = self;
     self.spoGraph.delegate = self;
     self.spoGraph.enableBezierCurve = enableBezierCurve;
     self.spoGraph.animationGraphEntranceTime = animationGraphEntranceTime;
     self.spoGraph.animationGraphStyle = BEMLineAnimationDraw;
-    [self.rowThree addSubview:self.spoGraph];
-
-    // Create observer
-    [[NSNotificationCenter defaultCenter] ]
     
-    // Set all data for Graph Data Models
-    for (int i=0; i<1000; i++) {
-        [self.bpmGraphData addValue:[[self.ecgData objectAtIndex:i] doubleValue] ];
-    }
-    for (int i=0; i<1000; i++) {
-        [self.pulseGraphData addValue:[[self.pulseData objectAtIndex:i] doubleValue] ];
-    }
-    for (int i=0; i<1000; i++) {
-        [self.spoGraphData addValue:[[self.spoData objectAtIndex:i] doubleValue] ];
-    }
-
+    [self.rowThree addSubview:self.spoGraph];
+    
+    [self reloadGraph:0 with:[self.bpmGraphData len]];
 }
 
-- (void)reloadAllGraphs {
-    // Create new thread
-    dispatch_queue_t backgroundQueue;
-    backgroundQueue = dispatch_queue_create("com.tufts.graphdraw.bgqueue", NULL);
-    
-    // Reload Graphs
-    dispatch_async(backgroundQueue, ^(void){
-        // Reload graphs
-        while(true) {
-            [self.bpmGraph reloadGraph];
-            [self.pulseGraph reloadGraph];
-            [self.spoGraph reloadGraph];
-            [NSThread sleepForTimeInterval:0.5];
-        }
-    });
+- (void)playGraphs: (UIButton*)sender {
+    [self reloadGraph:0 with:[self.bpmGraphData len]];
+}
+
+- (void)reloadGraph: (int) start with: (int) fin {
+    // Set all data for Graph Data Models
+    for (int i=start; i<fin%[self.ecgData count]; i++) {
+        [self.bpmGraphData addValue:[[self.ecgData objectAtIndex:i] doubleValue] ];
+    }
+    for (int i=start; i<fin%[self.pulseData count]; i++) {
+        [self.pulseGraphData addValue:[[self.pulseData objectAtIndex:i] doubleValue] ];
+    }
+    for (int i=start; i<fin%[self.spoData count]; i++) {
+        [self.spoGraphData addValue:[[self.spoData objectAtIndex:i] doubleValue] ];
+    }
+        
+    // Reload Graph
+    [self.bpmGraph reloadGraph];
+    [self.pulseGraph reloadGraph];
+    [self.spoGraph reloadGraph];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -431,7 +445,7 @@ double_t RETRY_AMMOUNT = 5;
 #pragma mark - Data Source
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return [[NSNumber numberWithInt:1000] integerValue];
+    return [self.bpmGraphData len];
 }
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {

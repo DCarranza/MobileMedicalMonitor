@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="70" width="1024" height="141"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" text="BPM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="zM6-3i-DWe">
-                                        <rect key="frame" x="846" y="0.0" width="74.5" height="41.5"/>
+                                        <rect key="frame" x="846" y="0.0" width="75" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zM6-3i-DWe" secondAttribute="height" multiplier="95:41" id="0Ug-C4-lpL"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="42" id="0b1-2D-mXf"/>
@@ -38,7 +38,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="249" ambiguous="YES" misplaced="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="Qvt-Ki-5EC">
-                                        <rect key="frame" x="816" y="45" width="133.5" height="94.5"/>
+                                        <rect key="frame" x="816" y="45" width="134" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="94" id="OGi-jE-Qhz"/>
                                         </constraints>
@@ -120,7 +120,7 @@
                                 <rect key="frame" x="0.0" y="236" width="1024" height="139"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="252" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="M8r-yC-dLY">
-                                        <rect key="frame" x="824" y="29.5" width="133.5" height="94.5"/>
+                                        <rect key="frame" x="824" y="30" width="134" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="94" id="Upg-xq-3zk"/>
                                         </constraints>
@@ -134,7 +134,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" ambiguous="YES" text="Pulse" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="Yxj-lX-YYD">
-                                        <rect key="frame" x="849" y="8" width="82.5" height="41.5"/>
+                                        <rect key="frame" x="849" y="8" width="83" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="42" id="7Zn-jR-6bS"/>
                                         </constraints>
@@ -181,7 +181,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9by-VJ-5X0" userLabel="Row3">
-                                <rect key="frame" x="0.0" y="399" width="1024" height="139.5"/>
+                                <rect key="frame" x="0.0" y="399" width="1024" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-1e-dmi">
                                         <rect key="frame" x="817" y="29" width="134" height="94"/>
@@ -198,15 +198,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-OW-abH" userLabel="RowThreeBottomPad">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-OW-abH" userLabel="RowThreeBottomPad">
                                 <rect key="frame" x="0.0" y="538" width="1024" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="28W-tk-D2v"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXl-9g-hI2" userLabel="Row4">
-                                <rect key="frame" x="0.0" y="563" width="1024" height="139.5"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXl-9g-hI2" userLabel="Row4">
+                                <rect key="frame" x="0.0" y="563" width="1024" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rg-xq-8HG">
                                         <rect key="frame" x="817" y="29" width="134" height="94"/>
@@ -279,6 +279,15 @@
                                         </state>
                                         <connections>
                                             <segue destination="n9p-D6-tQL" kind="show" identifier="settings" id="fEu-dp-nso"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1A-0g-gyj">
+                                        <rect key="frame" x="283" y="5" width="33" height="30"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playGraphs:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Jj-du-Xf3"/>
                                         </connections>
                                     </button>
                                 </subviews>
