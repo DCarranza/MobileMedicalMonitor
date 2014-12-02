@@ -170,10 +170,18 @@ double_t RETRY_AMMOUNT = 5;
     self.spoGraphData = [[GraphDataModel alloc] init];
     
     
+    // Set labels to static values
+    self.tempNumLabel.text = @"98";
+    self.pulseNumLabel.text = @"90";
+    self.bpmNumLabel.text = @"90";
+    self.spoNumLabel.text = @"97%";
+    
+    
+    
     //Add graphs to the view
     
     // Variables across all graphs
-    double animationGraphEntranceTime = 4.5;
+    double animationGraphEntranceTime = 2.5;
     bool enableBezierCurve = YES;
     
     // BPM
