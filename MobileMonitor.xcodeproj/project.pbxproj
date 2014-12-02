@@ -11,7 +11,12 @@
 		F123F14B1A24E1E200C09C70 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F1461A24E1E200C09C70 /* BEMCircle.m */; };
 		F123F14C1A24E1E200C09C70 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F1481A24E1E200C09C70 /* BEMLine.m */; };
 		F123F14D1A24E1E200C09C70 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F123F14A1A24E1E200C09C70 /* BEMSimpleLineGraphView.m */; };
+		F12731931A2D939C00D99395 /* green_wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = F12731901A2D939C00D99395 /* green_wifi.png */; };
+		F12731941A2D939C00D99395 /* red_wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = F12731911A2D939C00D99395 /* red_wifi.png */; };
+		F12731951A2D939C00D99395 /* yellow_wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = F12731921A2D939C00D99395 /* yellow_wifi.png */; };
+		F12731971A2D953100D99395 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F12731961A2D953100D99395 /* settings.png */; };
 		F16521571A252B6B00F65C1A /* GraphDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F16521561A252B6B00F65C1A /* GraphDataModel.m */; };
+		F17EC56A1A2D7C8E007A3F91 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17EC5691A2D7C8E007A3F91 /* SettingsViewController.m */; };
 		F1BE043F1A154A83000CE04A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE043E1A154A83000CE04A /* main.m */; };
 		F1BE04421A154A83000CE04A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE04411A154A83000CE04A /* AppDelegate.m */; };
 		F1BE04451A154A83000CE04A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE04441A154A83000CE04A /* ViewController.m */; };
@@ -45,8 +50,14 @@
 		F123F1481A24E1E200C09C70 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
 		F123F1491A24E1E200C09C70 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
 		F123F14A1A24E1E200C09C70 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		F12731901A2D939C00D99395 /* green_wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_wifi.png; sourceTree = "<group>"; };
+		F12731911A2D939C00D99395 /* red_wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_wifi.png; sourceTree = "<group>"; };
+		F12731921A2D939C00D99395 /* yellow_wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_wifi.png; sourceTree = "<group>"; };
+		F12731961A2D953100D99395 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		F16521551A252B6B00F65C1A /* GraphDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphDataModel.h; sourceTree = "<group>"; };
 		F16521561A252B6B00F65C1A /* GraphDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphDataModel.m; sourceTree = "<group>"; };
+		F17EC5681A2D7C8E007A3F91 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F17EC5691A2D7C8E007A3F91 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		F1BE04391A154A83000CE04A /* MobileMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BE043D1A154A83000CE04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1BE043E1A154A83000CE04A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,7 +143,10 @@
 				F1BE04411A154A83000CE04A /* AppDelegate.m */,
 				F1BE04431A154A83000CE04A /* ViewController.h */,
 				F1BE04441A154A83000CE04A /* ViewController.m */,
+				F17EC5681A2D7C8E007A3F91 /* SettingsViewController.h */,
+				F17EC5691A2D7C8E007A3F91 /* SettingsViewController.m */,
 				F1BE04461A154A83000CE04A /* Main.storyboard */,
+				F12731961A2D953100D99395 /* settings.png */,
 				F1BE04491A154A83000CE04A /* Images.xcassets */,
 				F1BE044B1A154A83000CE04A /* LaunchScreen.xib */,
 				F1BE043C1A154A83000CE04A /* Supporting Files */,
@@ -143,6 +157,9 @@
 		F1BE043C1A154A83000CE04A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F12731911A2D939C00D99395 /* red_wifi.png */,
+				F12731921A2D939C00D99395 /* yellow_wifi.png */,
+				F12731901A2D939C00D99395 /* green_wifi.png */,
 				F123F1441A24E1E200C09C70 /* Classes */,
 				F1BE043D1A154A83000CE04A /* Info.plist */,
 				F1C9A7691A1D740200EBA21A /* CoreGraphics.framework */,
@@ -254,7 +271,11 @@
 				F1BE04481A154A83000CE04A /* Main.storyboard in Resources */,
 				F1BE044D1A154A83000CE04A /* LaunchScreen.xib in Resources */,
 				F1BE044A1A154A83000CE04A /* Images.xcassets in Resources */,
+				F12731951A2D939C00D99395 /* yellow_wifi.png in Resources */,
+				F12731931A2D939C00D99395 /* green_wifi.png in Resources */,
+				F12731971A2D953100D99395 /* settings.png in Resources */,
 				F1F6C12F1A2D61C700291CA2 /* spo2.txt in Resources */,
+				F12731941A2D939C00D99395 /* red_wifi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +296,7 @@
 				289BED0E1A252DD300C75B3E /* NetworkManager.m in Sources */,
 				F16521571A252B6B00F65C1A /* GraphDataModel.m in Sources */,
 				F123F14B1A24E1E200C09C70 /* BEMCircle.m in Sources */,
+				F17EC56A1A2D7C8E007A3F91 /* SettingsViewController.m in Sources */,
 				F1BE04451A154A83000CE04A /* ViewController.m in Sources */,
 				F123F14C1A24E1E200C09C70 /* BEMLine.m in Sources */,
 				F1BE04421A154A83000CE04A /* AppDelegate.m in Sources */,

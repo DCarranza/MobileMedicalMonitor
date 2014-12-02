@@ -50,11 +50,18 @@ double_t RETRY_AMMOUNT = 5;
 @property (strong, nonatomic) IBOutlet UILabel *tempNumLabel;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *wifiButton;
 
 @property(strong, nonatomic) UIFont* hiddenFont;
 @property(strong, nonatomic) UIFont* showFont;
 @property(strong, nonatomic) UIFont* labelRegular;
 @property(strong, nonatomic) UIFont* numLabelRegular;
+
+//Alarm
+@property (strong,atomic) NSNumber* tempAlarmUpperThresh;
+@property (strong,atomic) NSNumber* tempAlarmLowerThresh;
+@property (strong,atomic) NSNumber* pulseAlarmUpper;
+@property (strong,atomic) NSNumber* pulseAlarmLower;
 
 @property (assign) int counter;
 
@@ -70,6 +77,8 @@ double_t RETRY_AMMOUNT = 5;
     self.completionBlock = ^void(NSData* data, NSError* error){
         if(!error){
             NSLog(@"Connection Successful.");
+            [self.wifiButton setBackgroundImage:[UIImage imageNamed:@"green_wifi"]
+                                       forState:UIControlStateNormal];
             self.retryCounter = 0;
             [self storeDataAsJSON:data with:error];
             
@@ -97,6 +106,10 @@ double_t RETRY_AMMOUNT = 5;
                                ^(){
                                    [self.netManager establishConnection:self.completionBlock];
                                });
+            else{
+                [self.wifiButton setBackgroundImage:[UIImage imageNamed:@"red_wifi"]
+                                           forState:UIControlStateNormal];
+            }
         }
     };
     
@@ -112,6 +125,11 @@ double_t RETRY_AMMOUNT = 5;
     [super viewDidLoad];
     [self loadInECGData];
     [self loadinSPOData];
+    self.tempAlarmUpperThresh = [NSNumber numberWithInt:100];
+    self.pulseAlarmUpper = [NSNumber numberWithInt:300];
+    
+    [self.wifiButton setBackgroundImage:[UIImage imageNamed:@"yellow_wifi.png"]
+                               forState:UIControlStateNormal];
     
     //UI Code
     //WORK IN PROGRESS
@@ -126,7 +144,6 @@ double_t RETRY_AMMOUNT = 5;
     self.hiddenFont = [UIFont fontWithName:@"Helvetica Neue Light" size:1];
     self.labelRegular = [UIFont fontWithName:@"Helvetica Neue" size:35];
     self.numLabelRegular = [UIFont fontWithName:@"Helvetica Neue" size:80];
-    NSLog(@"%@", self.numLabelRegular);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.bpmLabel.preferredMaxLayoutWidth = self.bpmLabel.bounds.size.width;
@@ -303,6 +320,9 @@ double_t RETRY_AMMOUNT = 5;
     [self toggleRowTwo];
 }
 
+- (IBAction)wifiPress:(id)sender {
+    [self.netManager establishConnection:self.completionBlock];
+}
 
 
 /* Fake Data Methods */
@@ -325,8 +345,28 @@ double_t RETRY_AMMOUNT = 5;
     fileContents = [fileContents stringByReplacingOccurrencesOfString:@"\t"
                                                            withString:@""];
     self.spoData = [fileContents componentsSeparatedByString:@"\n"];
-    NSLog(@"%@",self.spoData);
 }
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"settings"]){
+        SettingsViewController* settings = (SettingsViewController*) segue.destinationViewController;
+        settings.delegate = self;
+        settings.tempAlarmLowerThresh = self.tempAlarmLowerThresh;
+        settings.tempAlarmUpperThresh = self.tempAlarmUpperThresh;
+        settings.pulseAlarmLower = self.pulseAlarmLower;
+        settings.pulseAlarmUpper = self.pulseAlarmUpper;
+        [self.navigationController pushViewController:settings
+                                             animated:YES];
+    }
+}
+
+- (void)addItemViewController:(SettingsViewController *)controller
+        didFinishEnteringItem:(NSNumber *)tempAlarm
+                          and:(NSNumber*) pulseAlarm{
+    self.tempAlarmUpperThresh = tempAlarm;
+    self.pulseAlarmUpper = pulseAlarm;
+}
+
 
 /* Graph methods */
 

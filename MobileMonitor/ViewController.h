@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "BEMSimpleLineGraphView.h"
+#import "SettingsViewController.h"
 
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController <SettingsViewControllerDelegate>
 
 
 @end
