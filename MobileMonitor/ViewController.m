@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-NSString* URL = @"http://10.3.13.180/";
+NSString* URL = @"http://10.3.13.204/";
 double_t WAIT_TIME = 1.0;
 double_t RETRY_AMMOUNT = 5;
 
@@ -24,6 +24,7 @@ double_t RETRY_AMMOUNT = 5;
 @property (nonatomic, assign) NSInteger retryCounter;
 
 @property (nonatomic, strong) NSArray* ecgData;
+@property (nonatomic, strong) NSArray* spoData;
 
 // GraphDataModels for each graph
 @property (nonatomic,strong)GraphDataModel* ecgGraphData;
@@ -43,6 +44,10 @@ double_t RETRY_AMMOUNT = 5;
 @property (strong, nonatomic) IBOutlet UILabel *bpmNumLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pulseLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pulseNumLabel;
+@property (strong, nonatomic) IBOutlet UILabel *spoLabel;
+@property (strong, nonatomic) IBOutlet UILabel *spoNumLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tempNumLabel;
 
 
 
@@ -50,6 +55,8 @@ double_t RETRY_AMMOUNT = 5;
 @property(strong, nonatomic) UIFont* showFont;
 @property(strong, nonatomic) UIFont* labelRegular;
 @property(strong, nonatomic) UIFont* numLabelRegular;
+
+@property (assign) int counter;
 
 - (IBAction)testButton:(id)sender;
 
@@ -65,6 +72,10 @@ double_t RETRY_AMMOUNT = 5;
             NSLog(@"Connection Successful.");
             self.retryCounter = 0;
             [self storeDataAsJSON:data with:error];
+            
+            self.spoNumLabel.text = self.spoData[0];
+            self.counter++;
+            
             //This call takes care of the sleeping
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, WAIT_TIME * NSEC_PER_SEC),
                            dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
@@ -100,6 +111,7 @@ double_t RETRY_AMMOUNT = 5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadInECGData];
+    [self loadinSPOData];
     
     //UI Code
     //WORK IN PROGRESS
@@ -182,11 +194,11 @@ double_t RETRY_AMMOUNT = 5;
                                         attribute:NSLayoutAttributeNotAnAttribute
                                         multiplier:1
                                         constant:0]];
-            [self.ParentView layoutSubviews];
 
 
             numLabel.transform = CGAffineTransformMakeScale(1, 0.00001);
             label.transform = CGAffineTransformMakeScale(1, 0.00001);
+            [self.ParentView layoutSubviews];
             [row layoutIfNeeded];
             
 
@@ -201,9 +213,9 @@ double_t RETRY_AMMOUNT = 5;
             NSArray *tempConstraints = [row constraints];
             [row removeConstraint:[tempConstraints lastObject]];
 
-            [self.ParentView layoutSubviews];
             numLabel.transform = CGAffineTransformMakeScale(1, 1);
             label.transform = CGAffineTransformMakeScale(1, 1);
+            [self.ParentView layoutSubviews];
             [row layoutIfNeeded];
 
             
@@ -213,6 +225,60 @@ double_t RETRY_AMMOUNT = 5;
         
     }
 }
+
+
+- (void) rowIncreaseSize: (UIView*)row
+                    with:(UILabel*)label
+                     and:(UILabel*)numLabel{
+    if(!row.hidden){
+        [UIView animateWithDuration:1 animations:^{
+            
+            [row addConstraint:[NSLayoutConstraint
+                                constraintWithItem:row
+                                attribute:NSLayoutAttributeHeight
+                                relatedBy:NSLayoutRelationEqual
+                                toItem:nil
+                                attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1
+                                constant:200]];
+            numLabel.transform = CGAffineTransformMakeScale(1.5, 1.5);
+            label.transform = CGAffineTransformMakeScale(1.5, 1.5);
+            self.pulseNumLabel.transform = CGAffineTransformMakeScale(.5, .5);
+            self.spoLabel.transform = CGAffineTransformMakeScale(.5, .5);
+            self.spoNumLabel.transform = CGAffineTransformMakeScale(.5, .5);
+          /*
+            numLabel.transform = CGAffineTransformMakeScale(1, 0.00001);
+            label.transform = CGAffineTransformMakeScale(1, 0.00001);
+           */
+            [self.ParentView layoutSubviews];
+            [row layoutIfNeeded];
+            
+            
+        }
+                         completion:^(BOOL finished){
+                            // row.hidden = YES;
+                         }];
+    }
+    else{
+        [UIView animateWithDuration:1 animations:^{
+            row.hidden = NO;
+            NSArray *tempConstraints = [row constraints];
+            [row removeConstraint:[tempConstraints lastObject]];
+            
+            numLabel.transform = CGAffineTransformMakeScale(1, 1);
+            label.transform = CGAffineTransformMakeScale(1, 1);
+            [self.ParentView layoutSubviews];
+            [row layoutIfNeeded];
+            
+            
+        }
+                         completion:^(BOOL finished){
+                         }];
+        
+    }
+}
+
+
 
 -(void) toggleRowOne{
     [self toggleRowView:self.rowOne
@@ -228,7 +294,8 @@ double_t RETRY_AMMOUNT = 5;
 
 
 - (IBAction)testButton:(id)sender {
-    [self toggleRowOne];
+    [self rowIncreaseSize:self.rowOne with:self.bpmLabel and:self.bpmNumLabel];
+   // [self toggleRowOne];
 }
 
 
@@ -248,7 +315,17 @@ double_t RETRY_AMMOUNT = 5;
     fileContents = [fileContents stringByReplacingOccurrencesOfString:@"\t"
                                                            withString:@""];
     self.ecgData = [fileContents componentsSeparatedByString:@"\n"];
-    NSLog(@"%@",self.ecgData);
+}
+
+-(void) loadinSPOData{
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"spo2" ofType:@"txt"];
+    NSString *fileContents = [NSString stringWithContentsOfFile:path
+                                                       encoding:NSUTF8StringEncoding
+                                                          error:nil];
+    fileContents = [fileContents stringByReplacingOccurrencesOfString:@"\t"
+                                                           withString:@""];
+    self.spoData = [fileContents componentsSeparatedByString:@"\n"];
+    NSLog(@"%@",self.spoData);
 }
 
 /* Graph methods */

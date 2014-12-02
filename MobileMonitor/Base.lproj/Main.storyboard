@@ -21,8 +21,8 @@
                             <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bzg-xj-tXa" userLabel="Row1">
                                 <rect key="frame" x="0.0" y="70" width="1024" height="141"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" misplaced="YES" text="BPM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="zM6-3i-DWe">
-                                        <rect key="frame" x="846" y="8" width="75" height="41.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" text="BPM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="zM6-3i-DWe">
+                                        <rect key="frame" x="846" y="0.0" width="74.5" height="41.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zM6-3i-DWe" secondAttribute="height" multiplier="95:41" id="0Ug-C4-lpL"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="42" id="0b1-2D-mXf"/>
@@ -37,8 +37,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="249" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="Qvt-Ki-5EC">
-                                        <rect key="frame" x="817" y="29" width="134" height="94.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="249" ambiguous="YES" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="0.01" translatesAutoresizingMaskIntoConstraints="NO" id="Qvt-Ki-5EC">
+                                        <rect key="frame" x="816" y="45" width="133.5" height="94.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="94" id="OGi-jE-Qhz"/>
                                         </constraints>
@@ -52,28 +52,28 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstItem="zM6-3i-DWe" firstAttribute="leading" secondItem="Bzg-xj-tXa" secondAttribute="leading" constant="846" id="4F8-M4-TlI"/>
+                                    <constraint firstItem="zM6-3i-DWe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Bzg-xj-tXa" secondAttribute="leading" priority="750" constant="846" id="4F8-M4-TlI"/>
                                     <constraint firstItem="zM6-3i-DWe" firstAttribute="leading" secondItem="Bzg-xj-tXa" secondAttribute="leading" constant="826" id="6op-2x-Qq2"/>
                                     <constraint firstItem="Qvt-Ki-5EC" firstAttribute="top" secondItem="Bzg-xj-tXa" secondAttribute="top" constant="56" id="76i-aG-zn8"/>
                                     <constraint firstItem="Qvt-Ki-5EC" firstAttribute="top" secondItem="Bzg-xj-tXa" secondAttribute="top" constant="56" id="7el-oB-1kH"/>
                                     <constraint firstAttribute="trailing" secondItem="Qvt-Ki-5EC" secondAttribute="trailing" constant="71" id="8Le-AN-uee"/>
                                     <constraint firstAttribute="bottom" secondItem="zM6-3i-DWe" secondAttribute="bottom" constant="75.5" id="Amv-kf-bmU"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qvt-Ki-5EC" secondAttribute="trailing" constant="74" id="BiG-TE-qKy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qvt-Ki-5EC" secondAttribute="trailing" priority="750" constant="74" id="BiG-TE-qKy"/>
                                     <constraint firstItem="Qvt-Ki-5EC" firstAttribute="top" secondItem="zM6-3i-DWe" secondAttribute="bottom" constant="-20" id="Gfd-3r-TX1"/>
                                     <constraint firstItem="zM6-3i-DWe" firstAttribute="top" secondItem="Bzg-xj-tXa" secondAttribute="top" constant="22" id="Mag-Ox-C7N"/>
-                                    <constraint firstItem="zM6-3i-DWe" firstAttribute="top" relation="lessThanOrEqual" secondItem="Bzg-xj-tXa" secondAttribute="top" priority="750" constant="8" id="Th9-Vl-iOM"/>
+                                    <constraint firstItem="zM6-3i-DWe" firstAttribute="top" relation="lessThanOrEqual" secondItem="Bzg-xj-tXa" secondAttribute="top" priority="250" constant="8" id="Th9-Vl-iOM"/>
                                     <constraint firstItem="zM6-3i-DWe" firstAttribute="centerX" secondItem="Qvt-Ki-5EC" secondAttribute="centerX" id="Uu0-kF-kCn"/>
                                     <constraint firstAttribute="trailing" secondItem="zM6-3i-DWe" secondAttribute="trailing" constant="103" id="VTh-1u-djx"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qvt-Ki-5EC" secondAttribute="bottom" priority="750" id="WXj-Ob-OqH"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Qvt-Ki-5EC" secondAttribute="bottom" priority="750" constant="16" id="a4v-SA-2aX"/>
-                                    <constraint firstItem="Qvt-Ki-5EC" firstAttribute="leading" secondItem="Bzg-xj-tXa" secondAttribute="leading" constant="817" id="aNC-Ll-P3W"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zM6-3i-DWe" secondAttribute="trailing" constant="103.5" id="b47-ej-hsw"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qvt-Ki-5EC" secondAttribute="bottom" priority="250" id="WXj-Ob-OqH"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Qvt-Ki-5EC" secondAttribute="bottom" priority="250" constant="16" id="a4v-SA-2aX"/>
+                                    <constraint firstItem="Qvt-Ki-5EC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Bzg-xj-tXa" secondAttribute="leading" priority="750" constant="817" id="aNC-Ll-P3W"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zM6-3i-DWe" secondAttribute="trailing" priority="750" constant="104" id="b47-ej-hsw"/>
                                     <constraint firstAttribute="trailing" secondItem="Qvt-Ki-5EC" secondAttribute="trailing" constant="71" id="bvC-ON-VeZ"/>
                                     <constraint firstAttribute="width" secondItem="Qvt-Ki-5EC" secondAttribute="height" multiplier="16:1" id="fT9-sT-dvk"/>
                                     <constraint firstAttribute="bottom" secondItem="Qvt-Ki-5EC" secondAttribute="bottom" constant="18.5" id="fjV-qe-cWZ"/>
-                                    <constraint firstItem="zM6-3i-DWe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bzg-xj-tXa" secondAttribute="top" priority="750" id="mK9-CL-tHL"/>
+                                    <constraint firstItem="zM6-3i-DWe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bzg-xj-tXa" secondAttribute="top" priority="250" id="mK9-CL-tHL"/>
                                     <constraint firstAttribute="trailing" secondItem="zM6-3i-DWe" secondAttribute="trailing" priority="750" constant="103" id="tnY-r0-8Ty"/>
                                     <constraint firstItem="Qvt-Ki-5EC" firstAttribute="leading" secondItem="Bzg-xj-tXa" secondAttribute="leading" constant="793" id="tqF-RI-Yg3"/>
                                 </constraints>
@@ -111,7 +111,7 @@
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4d-jP-cWf" userLabel="RowOneBottomPad">
                                 <rect key="frame" x="0.0" y="211" width="1024" height="25"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ywx-ZG-2c0"/>
                                 </constraints>
@@ -151,16 +151,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="M8r-yC-dLY" firstAttribute="leading" secondItem="sql-qA-Xxe" secondAttribute="leading" constant="817" id="1Rp-jE-nyW"/>
-                                    <constraint firstItem="Yxj-lX-YYD" firstAttribute="top" relation="lessThanOrEqual" secondItem="sql-qA-Xxe" secondAttribute="top" priority="750" constant="8" id="1iL-aC-xg0"/>
+                                    <constraint firstItem="Yxj-lX-YYD" firstAttribute="top" relation="lessThanOrEqual" secondItem="sql-qA-Xxe" secondAttribute="top" priority="250" constant="8" id="1iL-aC-xg0"/>
                                     <constraint firstItem="M8r-yC-dLY" firstAttribute="top" secondItem="Yxj-lX-YYD" secondAttribute="bottom" constant="-20" id="3qk-Y9-6Rw"/>
                                     <constraint firstAttribute="trailing" secondItem="M8r-yC-dLY" secondAttribute="trailing" constant="73" id="5fw-BR-6zd"/>
                                     <constraint firstItem="M8r-yC-dLY" firstAttribute="leading" secondItem="sql-qA-Xxe" secondAttribute="leading" constant="824" id="LBc-Xw-N6j"/>
                                     <constraint firstAttribute="trailing" secondItem="M8r-yC-dLY" secondAttribute="trailing" constant="66.5" id="LCG-DO-UIb"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="M8r-yC-dLY" secondAttribute="bottom" priority="750" constant="16" id="Qx2-28-P7a"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="M8r-yC-dLY" secondAttribute="bottom" priority="250" constant="16" id="Qx2-28-P7a"/>
                                     <constraint firstItem="Yxj-lX-YYD" firstAttribute="leading" secondItem="sql-qA-Xxe" secondAttribute="leading" constant="849" id="SoH-QI-aUs"/>
                                     <constraint firstItem="Yxj-lX-YYD" firstAttribute="centerX" secondItem="M8r-yC-dLY" secondAttribute="centerX" id="fjd-Ic-sNU"/>
-                                    <constraint firstItem="Yxj-lX-YYD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sql-qA-Xxe" secondAttribute="top" priority="750" id="gDS-cl-uE8"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="M8r-yC-dLY" secondAttribute="bottom" priority="750" id="hzc-EW-eRK"/>
+                                    <constraint firstItem="Yxj-lX-YYD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sql-qA-Xxe" secondAttribute="top" priority="250" id="gDS-cl-uE8"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="M8r-yC-dLY" secondAttribute="bottom" priority="250" id="hzc-EW-eRK"/>
                                     <constraint firstAttribute="trailing" secondItem="Yxj-lX-YYD" secondAttribute="trailing" constant="92" id="iGQ-QG-Xs9"/>
                                     <constraint firstAttribute="trailing" secondItem="Yxj-lX-YYD" secondAttribute="trailing" priority="750" constant="103" id="t63-Xd-gbF"/>
                                 </constraints>
@@ -330,6 +330,10 @@
                         <outlet property="rowOnePadding" destination="p4d-jP-cWf" id="SxH-lS-a7M"/>
                         <outlet property="rowThree" destination="9by-VJ-5X0" id="Cbw-jD-pKB"/>
                         <outlet property="rowTwo" destination="sql-qA-Xxe" id="WU8-0J-jU2"/>
+                        <outlet property="spoLabel" destination="FFd-Kd-c6h" id="9y8-Tc-8DA"/>
+                        <outlet property="spoNumLabel" destination="9Ji-1e-dmi" id="Fss-c7-Lfe"/>
+                        <outlet property="tempLabel" destination="fSM-Zk-qRg" id="caf-sW-xZT"/>
+                        <outlet property="tempNumLabel" destination="5Rg-xq-8HG" id="GYA-VO-TE1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

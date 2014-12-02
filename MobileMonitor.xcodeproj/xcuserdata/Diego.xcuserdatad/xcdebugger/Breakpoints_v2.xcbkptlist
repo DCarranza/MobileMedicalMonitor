@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileMonitor/ViewController.m"
-            timestampString = "439179871.369061"
+            timestampString = "439184093.713859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-initalizeCompletionBlock"
             landmarkType = "5">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileMonitor/ViewController.m"
-            timestampString = "439179871.369061"
+            timestampString = "439184093.713859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "-loadInECGData"
             landmarkType = "5">
          </BreakpointContent>
