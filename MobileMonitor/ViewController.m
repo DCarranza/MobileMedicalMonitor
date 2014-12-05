@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-NSString* URL = @"http://www.google.com"; // @"http://10.3.13.204/";
+NSString* URL = @"http://10.3.13.204/";
 double_t WAIT_TIME = 0.5;
 double_t RETRY_AMMOUNT = 5;
 
