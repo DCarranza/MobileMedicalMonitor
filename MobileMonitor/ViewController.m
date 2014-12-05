@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-NSString* URL = @"http://www.google.com"; // @"http://10.3.13.204/";
+NSString* URL = @"http://10.3.13.204/";
 double_t WAIT_TIME = 0.5;
 double_t RETRY_AMMOUNT = 5;
 
@@ -74,11 +74,12 @@ double_t RETRY_AMMOUNT = 5;
 
 @implementation ViewController
 
-
+//Completion block for the Network Manager.
 - (void) initalizeCompletionBlock{
     self.completionBlock = ^void(NSData* data, NSError* error){
         if(!error){
             NSLog(@"Connection Successful.");
+            //Set wifi icon to green indicating connection was made.
             [self.wifiButton setBackgroundImage:[UIImage imageNamed:@"green_wifi"]
                                        forState:UIControlStateNormal];
             self.retryCounter = 0;
@@ -108,6 +109,7 @@ double_t RETRY_AMMOUNT = 5;
                                    [self.netManager establishConnection:self.completionBlock];
                                });
             else{
+                //Coonection failed.
                 [self.wifiButton setBackgroundImage:[UIImage imageNamed:@"red_wifi"]
                                            forState:UIControlStateNormal];
             }
@@ -134,18 +136,10 @@ double_t RETRY_AMMOUNT = 5;
                                forState:UIControlStateNormal];
     
     //UI Code
-    //WORK IN PROGRESS
+   
     self.ParentView.autoresizesSubviews = YES;
     self.rowOne.autoresizesSubviews = NO;
     self.rowOne.clipsToBounds = YES;
-    //self.bpmNumLabel.adjustsFontSizeToFitWidth = YES;
-    //self.bpmNumLabel.minimumScaleFactor = .1f;
-   // self.bpmLabel.adjustsFontSizeToFitWidth = YES;
-   // self.bpmLabel.minimumScaleFactor = .1f;
-    
-    self.hiddenFont = [UIFont fontWithName:@"Helvetica Neue Light" size:1];
-    self.labelRegular = [UIFont fontWithName:@"Helvetica Neue" size:35];
-    self.numLabelRegular = [UIFont fontWithName:@"Helvetica Neue" size:80];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.bpmLabel.preferredMaxLayoutWidth = self.bpmLabel.bounds.size.width;
@@ -169,7 +163,7 @@ double_t RETRY_AMMOUNT = 5;
     self.spoGraphData = [[GraphDataModel alloc] init];
     
     
-    // Set labels to static values
+    // Set labels to static default values
     self.tempNumLabel.text = @"98";
     self.pulseNumLabel.text = @"90";
     self.bpmNumLabel.text = @"90";
@@ -263,13 +257,14 @@ double_t RETRY_AMMOUNT = 5;
     // Dispose of any resources that can be recreated.
 }
 
-
+// Given a row, 1 through 4, toggles the view and subviews.
+// and resizes the adjacent views.
 - (void) toggleRowView: (UIView*)row
                   with:(UILabel*)label
                    and:(UILabel*)numLabel{
     if(!row.hidden){
                 [UIView animateWithDuration:1 animations:^{
-            
+            //Constraint overrides previous constraints, thus collapsing the view.
             [row addConstraint:[NSLayoutConstraint
                                         constraintWithItem:row
                                         attribute:NSLayoutAttributeHeight
@@ -279,7 +274,7 @@ double_t RETRY_AMMOUNT = 5;
                                         multiplier:1
                                         constant:0]];
 
-
+            //Takes care of properly shrinking UI labels inside the collapsing view.
             numLabel.transform = CGAffineTransformMakeScale(1, 0.00001);
             label.transform = CGAffineTransformMakeScale(1, 0.00001);
             [self.ParentView layoutSubviews];
@@ -294,9 +289,11 @@ double_t RETRY_AMMOUNT = 5;
     else{
         [UIView animateWithDuration:1 animations:^{
             row.hidden = NO;
+            //Removes 0 height constraint.
             NSArray *tempConstraints = [row constraints];
             [row removeConstraint:[tempConstraints lastObject]];
 
+            //Restores UI labels.
             numLabel.transform = CGAffineTransformMakeScale(1, 1);
             label.transform = CGAffineTransformMakeScale(1, 1);
             [self.ParentView layoutSubviews];
@@ -309,8 +306,9 @@ double_t RETRY_AMMOUNT = 5;
         
     }
 }
-
-
+//Not Used.
+//Increases a row and its subviews and resizes all other views
+//on screen.
 - (void) rowIncreaseSize: (UIView*)row
                     with:(UILabel*)label
                      and:(UILabel*)numLabel{
@@ -330,10 +328,7 @@ double_t RETRY_AMMOUNT = 5;
             self.pulseNumLabel.transform = CGAffineTransformMakeScale(.5, .5);
             self.spoLabel.transform = CGAffineTransformMakeScale(.5, .5);
             self.spoNumLabel.transform = CGAffineTransformMakeScale(.5, .5);
-          /*
-            numLabel.transform = CGAffineTransformMakeScale(1, 0.00001);
-            label.transform = CGAffineTransformMakeScale(1, 0.00001);
-           */
+        
             [self.ParentView layoutSubviews];
             [row layoutIfNeeded];
             
@@ -423,7 +418,7 @@ double_t RETRY_AMMOUNT = 5;
                                                            withString:@""];
     self.spoData = [fileContents componentsSeparatedByString:@"\n"];
 }
-
+//Transfer data between two veiws.
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"settings"]){
         SettingsViewController* settings = (SettingsViewController*) segue.destinationViewController;

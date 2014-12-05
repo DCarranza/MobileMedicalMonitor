@@ -42,7 +42,6 @@
     return YES;
 }
 - (IBAction)exit:(id)sender {
-    //[self.navigationController popToRootViewControllerAnimated:YES];
     [self.delegate addItemViewController:self didFinishEnteringItem:self.tempAlarmUpperThresh
                                      and:self.pulseAlarmUpper];
     [self dismissViewControllerAnimated:YES completion:nil];
